@@ -1,0 +1,9 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>알림 수신 중지</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>body{margin:0;font-family:"Pretendard Variable",Pretendard,"Malgun Gothic",sans-serif;background:#f5f6f8;color:#111827;min-height:100vh;display:flex;align-items:center;justify-content:center}.c{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:40px 28px;max-width:380px;width:calc(100% - 40px);text-align:center}h1{font-size:22px;margin:0 0 12px}p{font-size:15px;color:#4b5563;line-height:1.7;margin:0}.s{width:44px;height:44px;border-radius:50%;background:#0a1230;color:#fff;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;font-weight:700}</style></head><body>
+<div class="c"><div class="s" id="ic">…</div><h1 id="t">처리 중입니다</h1><p id="m">잠시만 기다려 주십시오.</p></div>
+<script>
+(function(){var k=new URLSearchParams(location.search).get('k')||'';var done=function(){document.getElementById('ic').textContent='✓';document.getElementById('t').textContent='알림 수신이 중지되었습니다';document.getElementById('m').innerHTML='앞으로 진행 안내 알림을 보내드리지 않습니다.<br>다시 안내가 필요하시면 카카오톡 채널 채팅방에 남겨 주십시오.';};
+if(!k){done();return;}
+fetch('https://kpac-crm-server-production.up.railway.app/api/debt/stop?k='+encodeURIComponent(k),{method:'POST',mode:'cors'}).then(done,done);})();
+</script></body></html>
